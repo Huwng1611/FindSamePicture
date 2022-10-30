@@ -118,14 +118,14 @@ public class GameController : MonoBehaviour
 
     void CheckIfFinished() //ham kiem tra win
     {
-        string currentScene = SceneManager.GetActiveScene().name;
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (CorrectGuess == ToTalGuess)
         {
-            if (currentScene != "Level3")
+            if (currentSceneIndex != 2)
             {
-                SceneManager.LoadScene("Level" + currentScene);
+                SceneManager.LoadScene($"Level{currentSceneIndex + 1}");
             }
-            else if (currentScene == "Level3")
+            else if (currentSceneIndex == 2)
             {
                 SceneManager.LoadScene("EndGame");
             }
